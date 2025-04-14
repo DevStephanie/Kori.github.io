@@ -7,9 +7,9 @@
     <style>
         /* Global Styles & Variables */
         :root {
-            --primary-color: #f8c9d4;
+            --primary-color: #3b54fb;
             --secondary-color: #f9e7e7;
-            --accent-color: #d291bc;
+            --accent-color: #d8d8db;
             --text-color: #5a4b4b;
             --light-text: #8e7474;
             --background: #fffafa;
@@ -38,7 +38,7 @@
         }
 
         a:hover {
-            color: #b06c92;
+            color: #6c9cf4;
             text-decoration: underline;
         }
 
@@ -118,6 +118,254 @@
 
         nav ul li a:hover::after {
             width: 100%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Hero Banner Container */
+        .hero-banner {
+            position: relative;
+            height: 80vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
+                        url('/api/placeholder/1920/1080') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Diagonal overlay for visual interest */
+        .hero-banner::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(135deg, transparent 50%, #fff 50%);
+            z-index: 1;
+        }
+
+        /* Content container */
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Typography */
+        .hero-subtitle {
+            color: #f8f8f8;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Decorative line elements */
+        .hero-subtitle::before,
+        .hero-subtitle::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 30px;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .hero-subtitle::before {
+            left: -40px;
+        }
+
+        .hero-subtitle::after {
+            right: -40px;
+        }
+
+        .hero-title {
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Call to action button */
+        .hero-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #517cf3;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(2, 31, 199, 0.4);
+        }
+
+        .hero-button:hover {
+            background-color: #527dff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(2, 8, 172, 0.5);
+        }
+
+        /* Additional decorative elements */
+        .hero-social {
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+            z-index: 3;
+        }
+
+        .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            margin-left: 10px;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
+        }
+
+        /* Category tag */
+        .hero-category {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            z-index: 3;
+            padding: 8px 16px;
+            background-color: #4462f7;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+        }
+
+        /* Scrolldown indicator */
+        .scroll-down {
+            position: absolute;
+            bottom: 170px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
+        .scroll-down svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .hero-social {
+                bottom: 30px;
+                right: 30px;
+            }
+
+            .hero-category {
+                top: 30px;
+                left: 30px;
+            }
+
+            .hero-banner::after {
+                height: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .hero-social {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                margin-top: 30px;
+            }
+
+            .hero-category {
+                position: relative;
+                top: auto;
+                left: auto;
+                display: inline-block;
+                margin-bottom: 30px;
+            }
+
+            .hero-banner {
+                height: auto;
+                padding: 100px 0 150px;
+                flex-direction: column;
+            }
         }
 
         /* Hero Section */
@@ -400,7 +648,7 @@
 
         .newsletter-form button {
             background-color: var(--accent-color);
-            color: white;
+            color: rgb(10, 22, 240);
             border: none;
             padding: 0 25px;
             border-radius: 0 30px 30px 0;
@@ -410,7 +658,7 @@
         }
 
         .newsletter-form button:hover {
-            background-color: #b06c92;
+            background-color: #537198;
         }
 
         /* Footer */
@@ -545,16 +793,31 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <div class="hero-banner">
+        <div class="hero-category">Lifestyle</div>
+        
         <div class="hero-content">
-            <h1>Welcome to My Blooming World</h1>
-            <p>A cozy corner of the internet where I share my thoughts on lifestyle, beauty, travel, and everything in between.</p>
-            <a href="#" class="btn">Latest Posts</a>
+            <div class="hero-subtitle">Welcome to My Blog</div>
+            <h1 class="hero-title">Discover Stories That Inspire</h1>
+            <p class="hero-description">Join me on a journey through life's adventures, creative insights, and thoughtful reflections that will inspire your everyday living.</p>
+            <a href="#" class="hero-button">Start Reading</a>
         </div>
-    </section>
+        
+        <div class="scroll-down">
+            <svg viewBox="0 0 24 24">
+                <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
+            </svg>
+        </div>
+        
+        <div class="hero-social">
+            <a href="#" class="social-icon">fb</a>
+            <a href="#" class="social-icon">tw</a>
+            <a href="#" class="social-icon">ig</a>
+        </div>
+    </div>
 
-    <!-- Main Content -->
+   <break> 
+</break>
     <div class="container main-content">
         <!-- Blog Posts -->
         <main>
@@ -662,7 +925,7 @@
     <section class="newsletter">
         <div class="container">
             <div class="newsletter-content">
-                <h2>Join My Newsletter</h2>
+                <h2>Sign up for my Newsletter </h2>
                 <p>Subscribe to receive my latest posts, exclusive content, and monthly favorites straight to your inbox.</p>
                 <form class="newsletter-form">
                     <input type="email" placeholder="Your email address" required>
@@ -677,8 +940,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Blossoming Thoughts</h3>
-                    <p>A lifestyle blog dedicated to finding beauty in everyday moments and creating a life filled with intention and joy.</p>
+                    <h3> Kori </h3>
+                    <p> Learning with fun </p>
                 </div>
                 <div class="footer-column">
                     <h3>Explore</h3>
@@ -712,7 +975,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Blossoming Thoughts. All rights reserved.</p>
+                <p>&copy; 2025 <i> Kori </i>. All rights reserved.</p>
             </div>
         </div>
     </footer>
